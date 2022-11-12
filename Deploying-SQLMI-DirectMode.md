@@ -65,3 +65,16 @@ az extension add --name customlocation
 ```
 
 Let's now proceed to Deploying Data Controller from Azure Portal
+
+1. Login to Azure portal where Azure Stack HCI cluster is registered to
+2. Go to Azure Arc -> Data Controller and Click on Create Azure Arc Data Controller and select "Azure Arc-enabled kubernetes cluster (Direct connectivity mode)
+3. Click on Data Controller Details
+4. Select the subscription and resource group where the Azure Kubernetes cluster is deployed.
+5. Enter a user friendly name for the data controller
+6. Under Custom Location, click on create new and select the cluster (In this case it is the workload cluster), and enter the name for custom location and napespace
+   ![image](https://user-images.githubusercontent.com/49147976/201472816-75fa6386-69fe-45fc-8896-0bee4afa9796.png)
+7. Under Kubernetes Configuration select the following parameters
+   ![image](https://user-images.githubusercontent.com/49147976/201472887-09e51f08-df1d-4cf2-bd0e-44501c84cb20.png)
+8. Enter the username and password for Grafana and Kibana dashboards and click Next for Additional Settings
+9. Ensure to select a tick for "Enable Metrics upload" option. You can optionally choose to select option "Enable logs upload"
+10. Select Tags and Click on Review and Create
