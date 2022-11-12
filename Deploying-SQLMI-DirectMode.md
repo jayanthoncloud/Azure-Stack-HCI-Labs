@@ -93,4 +93,16 @@ Let's now proceed to Deploying Data Controller from Azure Portal
 11. Note that Data controller deployment takes about 15 mins for the status to become ready. Once it is ready it should look like below
 ![image](https://user-images.githubusercontent.com/49147976/201475383-6240d568-ff76-4ba6-8a28-c53fe323bed9.png)
 
-
+## Deploying First SQL Managed Instance ###
+1. Login to Azure portal where Azure Stack HCI cluster is registered to
+2. Go to Azure Arc -> SQL managed instances and Click Create
+3. Select the subscription and the respective resource group where the AKS cluster and Data Controller is deployed
+4. Enter a user friendly name for the SQL managed instance
+5. Choose the custom location created while creating the data controller
+6. Select the service type as "Load Balancer"
+7. Seelct the appropriate compute + storage SKU. (Note: For testing purposes you can select the check box "For Development use only" under General Tier for which there is no charge
+8. Under the section Instance Compute and Instance STorage you can leave it to the default values
+9. Enter SQL managed instance admin name and password
+10. Optionally you can enabled AD authentication
+11. Click on Review + Create and click create to deploy SQL managed instance.
+12. 
