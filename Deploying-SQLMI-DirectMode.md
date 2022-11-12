@@ -56,6 +56,8 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManage
 #Install Helm
 choco install kubernetes-helm
 ```
+Now Install the az cli extensions
+```
 az extension add --name k8s-extension
 az extension add --name connectedk8s
 az extension add --name k8s-configuration
