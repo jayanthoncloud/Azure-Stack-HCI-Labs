@@ -44,6 +44,17 @@ az extension add --name arcdata
 ```
 az provider register --namespace Microsoft.AzureArcData
 ```
+
+8. Verify completed provider registration for Microsoft.ExtendedLocation
+```
+az provider register --namespace Microsoft.ExtendedLocation
+az provider show -n Microsoft.ExtendedLocation -o table
+```
+
+9. Enable custom location on the cluster
+```
+az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --features cluster-connect custom-locations
+```
 ## Deploying Data Controller ##
 Before we deploy the Data Controller it is important to install the following tools
 - Helm Version 3.3+
@@ -77,4 +88,9 @@ Let's now proceed to Deploying Data Controller from Azure Portal
    ![image](https://user-images.githubusercontent.com/49147976/201472887-09e51f08-df1d-4cf2-bd0e-44501c84cb20.png)
 8. Enter the username and password for Grafana and Kibana dashboards and click Next for Additional Settings
 9. Ensure to select a tick for "Enable Metrics upload" option. You can optionally choose to select option "Enable logs upload"
-10. Select Tags and Click on Review and Create
+10. Select Tags and Click on Review and Create. Once successfully created the output should look like below
+![image](https://user-images.githubusercontent.com/49147976/201474825-4bd4d3af-229d-49f2-a9d3-2929f0dabf75.png)
+11. Note that Data controller deployment takes about 15 mins for the status to become ready. Once it is ready it should look like below
+![image](https://user-images.githubusercontent.com/49147976/201475383-6240d568-ff76-4ba6-8a28-c53fe323bed9.png)
+
+
