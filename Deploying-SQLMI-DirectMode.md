@@ -120,7 +120,7 @@ Let's now proceed to Deploying Data Controller from Azure Portal
 5. Let's connect to the database we created using the "New Connection". Before that we need to get the IP address of load balancer service of the sql db. One way to find out is to use "kubectl get service" command in that namespace
 ![image](https://user-images.githubusercontent.com/49147976/201503793-d6ef46e8-3dd4-467c-bcc1-179aec97e690.png)
 6. Enter the IP address and the login credentials we provided when we created the sql mi, as mentioned below
-![image](https://user-images.githubusercontent.com/49147976/201503843-1487cada-8928-408d-97ce-21b523e5429a.png)
+![image](https://user-images.githubusercontent.com/49147976/201503990-116ea571-ae9a-4d79-afb5-f13d43ae858f.png)
 
  
 
