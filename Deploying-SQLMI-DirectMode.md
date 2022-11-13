@@ -100,9 +100,27 @@ Let's now proceed to Deploying Data Controller from Azure Portal
 4. Enter a user friendly name for the SQL managed instance
 5. Choose the custom location created while creating the data controller
 6. Select the service type as "Load Balancer"
-7. Seelct the appropriate compute + storage SKU. (Note: For testing purposes you can select the check box "For Development use only" under General Tier for which there is no charge
+7. Seelct the appropriate compute + storage SKU. (Note: For testing purposes you can select the check box "For Development use only" under General Tier for which there is no charge)
 8. Under the section Instance Compute and Instance STorage you can leave it to the default values
 9. Enter SQL managed instance admin name and password
 10. Optionally you can enabled AD authentication
 11. Click on Review + Create and click create to deploy SQL managed instance.
-12. 
+12. The SQL managed instance takes around 10-15 minutes to fully deploy all the pods. You can monitor the progress of the pods using the "kubectl" command in the namespace. Ensure that all pods are in running state.
+![image](https://user-images.githubusercontent.com/49147976/201503098-4196ae32-de4d-4c65-8988-af5a58b9aab9.png)
+13. Check the Azure portal to see if the status of sql managed instance is in "Ready" state
+![image](https://user-images.githubusercontent.com/49147976/201503221-c035fa2f-0cb0-4229-b58e-cb83b14f15f6.png)
+
+## Accessing the Data Controller and SQL Managed Instance from Azure Data Studio
+1. Make sure to login to Azure Data Studio using the same Azure subscription and credentials used to register Azure Stack HCi cluster
+2. Open Azure Data Studio from the management station and go to "Connections" tab on the left hand side
+3. In the left pane down at the bottom, click on "Azure ARC Controllers" and connect the Data Controller that we created in the above step
+![image](https://user-images.githubusercontent.com/49147976/201503439-4dbedc14-6087-48a3-9da1-e1eaa88d0942.png)
+4. Once it is connected, it displays the sql mi database that we created under the connection name. Right click on the database and click "Manage". You should see the Azure Arc Dashboard
+![image](https://user-images.githubusercontent.com/49147976/201503562-df11fe80-0890-4ec8-925b-4471262febe9.png)
+5. Let's connect to the database we created using the "New Connection". Before that we need to get the IP address of load balancer service of the sql db. One way to find out is to use "kubectl get service" command in that namespace
+![image](https://user-images.githubusercontent.com/49147976/201503793-d6ef46e8-3dd4-467c-bcc1-179aec97e690.png)
+6. Enter the IP address and the login credentials we provided when we created the sql mi, as mentioned below
+![image](https://user-images.githubusercontent.com/49147976/201503843-1487cada-8928-408d-97ce-21b523e5429a.png)
+
+ 
+
