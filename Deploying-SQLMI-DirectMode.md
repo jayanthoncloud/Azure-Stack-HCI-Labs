@@ -144,6 +144,27 @@ Grafan and Kibana tools are automatically installed when you select the option t
 
 **Discover View**
 ![image](https://user-images.githubusercontent.com/49147976/201830231-a8511a5a-0e89-4491-946c-53f96f5bfa0e.png)
+## How to correctly cleanup older artifacts before deploying another data controller ##
+If you installed the data controller in the past and later deleted the data controller, there may be some cluster level objects that would still need to be deleted.
 
+1. First delete the sql managed instance from Azure Portal
+2. Delete data controller extension from the cluster. Select the Azure Arc-enabled Kubernetes cluster -> go to the Overview page Select Extensions under Settings
+In the Extensions page -> select the Azure Arc data services extension and select on Uninstall
+3. Go to Azure Arc -> Data Controller and select the data controller and delete.
+- To delete the namespace: run the command -> kubectl delete namespace <enter the namespace>
+- To delete the custom location: Go to Azure Portal -> Azure Arc -> Custom Location -> Select the Custom Location and delete.
+4. Delete the following cluster objects
+   kubectl delete crd datacontrollers.arcdata.microsoft.com
+   kubectl delete crd postgresqls.arcdata.microsoft.com
+   kubectl delete crd sqlmanagedinstances.sql.arcdata.microsoft.com
+   kubectl delete crd sqlmanagedinstancerestoretasks.tasks.sql.arcdata.microsoft.com
+   kubectl delete crd dags.sql.arcdata.microsoft.com
+   kubectl delete crd exporttasks.tasks.arcdata.microsoft.com
+   kubectl delete crd monitors.arcdata.microsoft.com
+   kubectl delete crd activedirectoryconnectors.arcdata.microsoft.com
+   kubectl delete crd kafkas.arcdata.microsoft.com
+5. Optionally you can also delete the namespace and the custom location created
+6. That's it. Now you're ready to create a new data controller
+ 
 
 
