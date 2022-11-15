@@ -121,6 +121,29 @@ Let's now proceed to Deploying Data Controller from Azure Portal
 ![image](https://user-images.githubusercontent.com/49147976/201503793-d6ef46e8-3dd4-467c-bcc1-179aec97e690.png)
 6. Enter the IP address and the login credentials we provided when we created the sql mi, as mentioned below
 ![image](https://user-images.githubusercontent.com/49147976/201503990-116ea571-ae9a-4d79-afb5-f13d43ae858f.png)
+7. Once connected, you should be able to manage the sql managed instance db from Azure Data Studio
+![image](https://user-images.githubusercontent.com/49147976/201826150-ccc4494c-c041-4391-907d-f6203480a212.png)
 
- 
+## Accessing the SQL Managed Instance using Grafana and Kibana Dashboards
+Grafan and Kibana tools are automatically installed when you select the option to enable "Metrics Upload" option during data controller deployment. There are two ways to fetch the URL for Grafana and Kibana dashboards. One using the kubectl get services command, other using the Azure Data Studio dashboard under the overview tab as shown below
+![image](https://user-images.githubusercontent.com/49147976/201827922-c5451773-f503-462a-a786-7ef32f80dea0.png)
+### Grafana Dashboard ###
+1. Let's click on the link for the Grafana dashboard and when promted, enter the username and password that you provided during the data controller creation wizard. 
+2. Once logged in you will be able to see all the metrics related to transations, performance characteristics for the sql managed instace. You can click on search button to view other parameters such as Host Node Mentrics, Pods and Containers Metrics. Below are the snapshots of various metrics.
+
+**SQL Managed Instance Metrics**
+![image](https://user-images.githubusercontent.com/49147976/201828856-732519b1-e487-4db4-aff3-a6ea533efa23.png)
+
+**Host Node Metrics**
+![image](https://user-images.githubusercontent.com/49147976/201829089-67e6751f-3a44-4ec7-878c-033b17da00bb.png)
+
+**Pods and Containers Metrics**
+![image](https://user-images.githubusercontent.com/49147976/201829238-d1d4e1d5-42f5-414c-a897-592c07c89553.png)
+### Kibana Dashboard ###
+1. Let's click on the link for Kibana dashboard from Azure Data Studio and when prompted enter the username and password that you provided during the data controller deployment. 
+
+**Discover View**
+![image](https://user-images.githubusercontent.com/49147976/201830231-a8511a5a-0e89-4491-946c-53f96f5bfa0e.png)
+
+
 
