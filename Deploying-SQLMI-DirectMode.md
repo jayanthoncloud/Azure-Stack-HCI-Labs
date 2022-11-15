@@ -1,4 +1,4 @@
-# How to Deploy SQL Managed Instance on Azure Stack HCI Cluster in Direct Connectivity Mode #
+# How to Deploy SQL Managed Instance on Azure Stack HCI Cluster in Directly Connectivity Mode #
 ## Prerequisites ##
 1. This lab assumes that Azure Stack HCI cluster is already created and registered with Azure. When deploying Azure Stack HCI cluster, ensure that you have enough compute and memory resources on the nodes to deploy SQL Managed Instance. (Note: For this lab, 2-nodes azure stack hci cluster was created with each node asigned with 64GB of RAM and 8 vCPU. Both nodes have access to a cluster shared volume of 1TB). You can easily deploy Azure Stack HCI cluster with MSLab (Ref: https://github.com/DellGEOS/AzureStackHOLs)
 
